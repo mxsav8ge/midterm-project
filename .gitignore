@@ -1,0 +1,73 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment files
+.env
+.env.backup
+.env.production
+.env*.local
+!.env.example
+
+# Expo & Mobile
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+.metro-health-check*
+/ios
+/android
+
+# Laravel
+backend/public/build
+backend/public/hot
+backend/public/storage
+backend/storage/*.key
+backend/storage/framework/cache/data/*
+!backend/storage/framework/cache/data/.gitignore
+backend/storage/framework/sessions/*
+!backend/storage/framework/sessions/.gitignore
+backend/storage/framework/testing/*
+!backend/storage/framework/testing/.gitignore
+backend/storage/framework/views/*
+!backend/storage/framework/views/.gitignore
+backend/storage/logs/*
+!backend/storage/logs/.gitignore
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+
+# SQLite databases
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+
+# Logs & debugging
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.pem
+
+# IDEs & Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.fleet/
