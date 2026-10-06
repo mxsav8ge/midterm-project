@@ -36,8 +36,8 @@ const DRAWER_WIDTH = Math.min(width * 0.82, 330);
 export default function SidebarDrawer({
   visible,
   onClose,
-  customerName = 'Isha',
-  location = 'Manila, PH',
+  customerName = 'Occian',
+  location = 'Opol, Misamis Oriental, Philippines',
   navigation,
   onSelectFavoriteFilter,
 }) {
@@ -100,7 +100,7 @@ export default function SidebarDrawer({
       } else if (action === 'address') {
         Alert.alert(
           'Saved Address',
-          '123 Coffee Street, BGC, Taguig, Metro Manila, Philippines\n\nDefault delivery location.',
+          'Opol, Misamis Oriental, Philippines\n\nDefault delivery location.',
           [{ text: 'OK' }]
         );
       } else if (action === 'payment') {
@@ -311,7 +311,7 @@ export default function SidebarDrawer({
 
           {/* Version Footer */}
           <View style={styles.footer}>
-            <Text style={styles.footerText}>Brew & Bite • Manila Edition</Text>
+            <Text style={styles.footerText}>Brew & Bite • Opol Edition</Text>
             <Text style={styles.footerSub}>v1.2.0 • Handcrafted with passion</Text>
           </View>
         </ScrollView>

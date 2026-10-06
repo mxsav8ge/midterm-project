@@ -178,7 +178,7 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.locationLabel}>Location</Text>
           <View style={styles.locationValueRow}>
             <Text style={styles.locationText}>
-              {storeInfo?.location || 'Manila, PH'}
+              {storeInfo?.location || 'Opol, Misamis Oriental, Philippines'}
             </Text>
             <ChevronDown size={14} color={COLORS.text} />
           </View>
@@ -274,7 +274,7 @@ export default function HomeScreen({ navigation }) {
         {/* Popular Now Section */}
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>Popular Now</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Order')} activeOpacity={0.7}>
+          <TouchableOpacity onPress={() => navigation.navigate('Menu')} activeOpacity={0.7}>
             <Text style={styles.viewAllText}>View all</Text>
           </TouchableOpacity>
         </View>
@@ -368,7 +368,7 @@ export default function HomeScreen({ navigation }) {
         visible={drawerVisible}
         onClose={() => setDrawerVisible(false)}
         customerName={storeInfo?.customerName || 'Isha'}
-        location={storeInfo?.location || 'Manila, PH'}
+        location={storeInfo?.location || 'Opol, Misamis Oriental, Philippines'}
         navigation={navigation}
         onSelectFavoriteFilter={() => {
           setSelectedCategory('all');

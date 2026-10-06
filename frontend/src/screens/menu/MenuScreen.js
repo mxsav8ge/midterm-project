@@ -85,7 +85,7 @@ export default function MenuScreen({ route, navigation }) {
       <Header
         title="Full Menu"
         subtitle="Crafted Fresh to Order"
-        showBack={false}
+        showBack={true}
         navigation={navigation}
       />
 

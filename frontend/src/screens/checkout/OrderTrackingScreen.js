@@ -66,7 +66,7 @@ export default function OrderTrackingScreen({ route, navigation }) {
   const handleCallDriver = () => {
     Alert.alert(
       'Call Delivery Rider',
-      'Kuya Mark Santos (+63 917 892 4521)\nHonda Click 125 • NAI 2024',
+      'Kuya Mark Santos (+63 999 999 9999)\nHonda Click 125 • NAI 2024',
       [
         { text: 'Cancel', style: 'cancel' },
         { text: 'Call Now', onPress: () => {} },
@@ -161,7 +161,7 @@ export default function OrderTrackingScreen({ route, navigation }) {
                 </View>
               </View>
               <Text style={styles.vehicleText}>Honda Click 125 • NAI 2024</Text>
-              <Text style={styles.etaText}>🛵 Picking up order at BGC branch</Text>
+              <Text style={styles.etaText}>🛵 Picking up order at Opol Branch</Text>
             </View>
           </View>
 

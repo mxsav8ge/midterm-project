@@ -11,6 +11,7 @@ import CartScreen from '../screens/checkout/CartScreen';
 import CheckoutScreen from '../screens/checkout/CheckoutScreen';
 import ItemDetailScreen from '../screens/menu/ItemDetailScreen';
 import OrderTrackingScreen from '../screens/checkout/OrderTrackingScreen';
+import MenuScreen from '../screens/menu/MenuScreen';
 import { useCart } from '../context/CartContext';
 import { COLORS, RADIUS } from '../constants/theme';
 
@@ -31,7 +32,7 @@ function ProfileScreen() {
   return (
     <View style={styles.center}>
       <Text style={styles.tabPlaceholderTitle}>Isha's Profile</Text>
-      <Text style={styles.tabPlaceholderSubtitle}>123 Coffee Street, BGC, Taguig, Metro Manila, Philippines</Text>
+      <Text style={styles.tabPlaceholderSubtitle}>123 Coffee Street, Opol, Misamis Oriental, Philippines</Text>
     </View>
   );
 }
@@ -115,6 +116,7 @@ export default function AppNavigator() {
         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         <Stack.Screen name="Main" component={MainTabs} />
         <Stack.Screen name="HomeTab" component={MainTabs} />
+        <Stack.Screen name="Menu" component={MenuScreen} />
         <Stack.Screen
           name="ItemDetail"
           component={ItemDetailScreen}

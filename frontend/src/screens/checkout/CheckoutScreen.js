@@ -39,9 +39,12 @@ export default function CheckoutScreen({ navigation }) {
       setSubmitting(true);
 
       const orderPayload = {
-        customerName: 'Isha',
+        customerName: 'Occian',
+        customerLocation: 'Opol, Misamis Oriental, Philippines',
+        customerAddress: '123 Coffee Street, Opol, Misamis Oriental, Philippines',
+        paymentMethod: paymentMethod === 'card' ? 'Card Payment' : 'Cash on Delivery',
         orderType: deliveryOption === 'standard' ? 'Standard Delivery' : 'Express Delivery',
-        tableOrAddress: '123 Coffee Street, BGC, Taguig, Metro Manila, Philippines',
+        tableOrAddress: '123 Coffee Street, Opol, Misamis Oriental, Philippines',
         items: items.map((i) => ({
           id: i.productId,
           name: i.name,
@@ -104,7 +107,7 @@ export default function CheckoutScreen({ navigation }) {
             <View style={styles.addressInfo}>
               <Text style={styles.addressLabel}>Home</Text>
               <Text style={styles.addressText} numberOfLines={1}>
-                123 Coffee Street, BGC, Taguig, Metro Manila, Philippines
+                123 Coffee Street, Opol, Misamis Oriental, Philippines
               </Text>
             </View>
             <ChevronRight size={18} color={COLORS.textSecondary} />

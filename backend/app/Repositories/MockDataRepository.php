@@ -11,9 +11,9 @@ class MockDataRepository
     {
         return [
             'name' => 'Good Coffee, Good Mood',
-            'customerName' => 'Isha',
-            'location' => 'Manila, PH',
-            'address' => '123 Coffee Street, BGC, Taguig, Metro Manila, Philippines',
+            'customerName' => 'Occian',
+            'location' => 'Opol, Misamis Oriental, Philippines',
+            'address' => '123 Coffee Street, Opol, Misamis Oriental, Philippines',
             'tagline' => 'Discover the best coffee, made for you.',
             'isOpen' => true,
             'rating' => 4.8,
@@ -69,7 +69,7 @@ class MockDataRepository
                 'reviews' => 230,
                 'isPopular' => true,
                 'isSpecial' => false,
-                'imageUrl' => 'http://192.168.254.109:8000/images/drinks/drinks1.png',
+                'imageUrl' => 'http://localhost:8000/images/drinks/drinks1.png',
                 'description' => 'A classic cappuccino with rich espresso, steamed milk, and a smooth layer of foam.',
                 'sizes' => [
                     ['id' => 's', 'label' => 'S', 'oz' => '8 oz', 'extra' => 0.00],
@@ -96,7 +96,7 @@ class MockDataRepository
                 'reviews' => 185,
                 'isPopular' => true,
                 'isSpecial' => false,
-                'imageUrl' => 'http://192.168.254.109:8000/images/drinks/drinks3.png',
+                'imageUrl' => 'http://localhost:8000/images/drinks/drinks3.png',
                 'description' => 'Freshly pulled espresso with creamy steamed milk and rich sweet caramel syrup drizzle.',
                 'sizes' => [
                     ['id' => 's', 'label' => 'S', 'oz' => '8 oz', 'extra' => 0.00],
@@ -123,7 +123,7 @@ class MockDataRepository
                 'reviews' => 140,
                 'isPopular' => false,
                 'isSpecial' => true,
-                'imageUrl' => 'http://192.168.254.109:8000/images/drinks/drinks4.png',
+                'imageUrl' => 'http://localhost:8000/images/drinks/drinks4.png',
                 'description' => 'Double shot of ristretto blended with velvety microfoam milk for an intense coffee punch.',
                 'sizes' => [
                     ['id' => 's', 'label' => 'S', 'oz' => '8 oz', 'extra' => 0.00],
@@ -147,7 +147,7 @@ class MockDataRepository
                 'reviews' => 98,
                 'isPopular' => false,
                 'isSpecial' => false,
-                'imageUrl' => 'http://192.168.254.109:8000/images/drinks/drinks6.png',
+                'imageUrl' => 'http://localhost:8000/images/drinks/drinks6.png',
                 'description' => 'Pure concentrated shot of 100% Arabica beans with a thick, golden crema.',
                 'sizes' => [
                     ['id' => 'single', 'label' => 'Single', 'oz' => '1 oz', 'extra' => 0.00],

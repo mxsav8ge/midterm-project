@@ -40,7 +40,7 @@ class OrderController extends Controller
             'total' => (float)$validated['total'],
             'status' => 'Preparing',
             'estimatedPrepMinutes' => 15,
-            'storeName' => 'Velvet Brew & Burger Co.',
+            'storeName' => 'Brew & Bite'
         ];
 
         return response()->json([
