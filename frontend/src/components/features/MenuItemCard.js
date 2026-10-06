@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Star, Clock, Plus } from 'lucide-react-native';
 import { COLORS, RADIUS, SHADOWS, SPACING } from '../../constants/theme';
 import { formatCurrency } from '../../utils/formatters';
+import { getImageUrl } from '../../utils/imageUrl';
 
 export default function MenuItemCard({ item, onPress, onQuickAdd }) {
   return (
@@ -13,7 +14,7 @@ export default function MenuItemCard({ item, onPress, onQuickAdd }) {
     >
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: item.imageUrl }}
+          source={{ uri: getImageUrl(item.imageUrl) }}
           style={styles.image}
           resizeMode="cover"
         />

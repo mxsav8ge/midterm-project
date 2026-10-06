@@ -32,8 +32,8 @@ const { width } = Dimensions.get('window');
 const MAP_WIDTH = width - SPACING.lg * 2;
 const MAP_HEIGHT = 230;
 
-// Coordinates along BGC streets for the delivery path
-// Store (Brew & Bite BGC): { x: 45, y: 175 }
+// Coordinates along streets for the delivery path
+// Store (Brew & Bite): { x: 45, y: 175 }
 // Waypoints through 5th Ave & 28th St
 // Destination (123 Coffee St): { x: MAP_WIDTH - 55, y: 55 }
 const ROUTE_POINTS = [
@@ -94,7 +94,7 @@ export default function LiveTrackingMap() {
       const remaining = (1.8 * (1 - value)).toFixed(1);
       setDistanceKm(remaining);
       if (value < 0.35) {
-        setCurrentStreet('5th Avenue, BGC');
+        setCurrentStreet('5th Avenue, Opol, Misamis Oriental');
       } else if (value < 0.65) {
         setCurrentStreet('28th Street corner 7th Ave');
       } else {
@@ -149,7 +149,7 @@ export default function LiveTrackingMap() {
           {/* Map Base Surface */}
           <Rect x="0" y="0" width={MAP_WIDTH} height={currentHeight} fill="#F5EFE7" />
 
-          {/* City Parks / Green Spaces in BGC */}
+          {/* City Parks / Green Spaces */}
           <Rect x="15" y="20" width="65" height="55" rx="8" fill="#E4ECE0" />
           <SvgText x="47" y="52" fill="#78926F" fontSize="9" fontWeight="700" textAnchor="middle">
             TERRA 28th
@@ -160,7 +160,7 @@ export default function LiveTrackingMap() {
             TRACK 30th
           </SvgText>
 
-          {/* BGC Street Grid (Roads) */}
+          {/* Opol Street Grid (Roads) */}
           {/* Horizontal Streets */}
           <Rect x="0" y="55" width={MAP_WIDTH} height="20" fill="#FFFFFF" />
           <Rect x="0" y="105" width={MAP_WIDTH} height="20" fill="#FFFFFF" />
@@ -226,7 +226,7 @@ export default function LiveTrackingMap() {
         <View style={styles.calloutIcon}>
           <Coffee size={12} color="#FFFFFF" />
         </View>
-        <Text style={styles.calloutText}>Brew & Bite BGC</Text>
+        <Text style={styles.calloutText}>Brew & Bite</Text>
       </View>
 
       {/* Delivery Destination Badge Callout */}

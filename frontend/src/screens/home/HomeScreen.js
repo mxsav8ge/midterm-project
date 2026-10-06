@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+
 import {
   Menu,
   Bell,
@@ -39,6 +40,7 @@ import { menuService } from '../../api/services/menuService';
 import { useCart } from '../../context/CartContext';
 import { COLORS, RADIUS, SHADOWS, SPACING } from '../../constants/theme';
 import { formatCurrency } from '../../utils/formatters';
+import { getImageUrl } from '../../utils/imageUrl';
 import SidebarDrawer from '../../components/common/SidebarDrawer';
 import NotificationModal from '../../components/common/NotificationModal';
 
@@ -213,7 +215,7 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.greetingTitle}>
             Good Morning,{' '}
             <Text style={styles.greetingName}>
-              {storeInfo?.customerName || 'Isha'}
+              {storeInfo?.customerName || 'Occian'}
             </Text>{' '}
             👋
           </Text>
@@ -294,7 +296,7 @@ export default function HomeScreen({ navigation }) {
                 activeOpacity={0.9}
               >
                 <View style={styles.cardImageContainer}>
-                  <Image source={{ uri: item.imageUrl }} style={styles.cardImage} />
+                  <Image source={{ uri: getImageUrl(item.imageUrl) }} style={styles.cardImage} />
                   <TouchableOpacity
                     style={styles.heartBtn}
                     onPress={() => toggleFavorite(item.id)}
@@ -354,7 +356,7 @@ export default function HomeScreen({ navigation }) {
 
             <View style={styles.specialImageContainer}>
               <Image
-                source={{ uri: specialItem.imageUrl }}
+                source={{ uri: getImageUrl(specialItem.imageUrl) }}
                 style={styles.specialImage}
               />
             </View>
@@ -367,7 +369,7 @@ export default function HomeScreen({ navigation }) {
       <SidebarDrawer
         visible={drawerVisible}
         onClose={() => setDrawerVisible(false)}
-        customerName={storeInfo?.customerName || 'Isha'}
+        customerName={storeInfo?.customerName || 'Occian'}
         location={storeInfo?.location || 'Opol, Misamis Oriental, Philippines'}
         navigation={navigation}
         onSelectFavoriteFilter={() => {

@@ -1,20 +1,17 @@
 import axios from 'axios';
 import { Platform } from 'react-native';
 
-// In Android Emulator, 10.0.2.2 maps directly to the host machine's localhost:8000
-// On physical devices via Expo Go, the LAN IP is used.
-const HOST_LAN_IP = '192.168.254.109';
-const EMULATOR_HOST = '10.0.2.2';
+const HOST_LAN_IP = '192.168.0.116';
 const PORT = '8000';
 
 const getBaseUrl = () => {
   if (Platform.OS === 'web') {
     return `http://localhost:${PORT}/api`;
   }
-  if (Platform.OS === 'android') {
-    // 10.0.2.2 reliably communicates with the host machine in Android Studio emulator
-    return `http://${EMULATOR_HOST}:${PORT}/api`;
-  }
+if (Platform.OS === 'android') {
+  return `http://${HOST_LAN_IP}:${PORT}/api`;
+}
+
   return `http://${HOST_LAN_IP}:${PORT}/api`;
 };
 

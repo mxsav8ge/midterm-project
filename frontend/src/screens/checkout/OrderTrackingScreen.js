@@ -22,6 +22,7 @@ import {
 } from 'lucide-react-native';
 import { COLORS, RADIUS, SHADOWS, SPACING } from '../../constants/theme';
 import { formatCurrency } from '../../utils/formatters';
+import { getImageUrl } from '../../utils/imageUrl';
 import DriverChatModal from '../../components/features/DriverChatModal';
 import LiveTrackingMap from '../../components/features/LiveTrackingMap';
 
@@ -198,7 +199,7 @@ export default function OrderTrackingScreen({ route, navigation }) {
         {items.map((item, idx) => (
           <View key={idx} style={styles.itemRow}>
             <View style={styles.itemImageContainer}>
-              <Image source={{ uri: item.imageUrl }} style={styles.itemImage} />
+              <Image  source={{ uri: getImageUrl(item.imageUrl) }} style={styles.itemImage} />
             </View>
             <View style={styles.itemInfo}>
               <Text style={styles.itemName}>{item.name}</Text>

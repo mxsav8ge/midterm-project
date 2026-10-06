@@ -31,7 +31,7 @@ function RewardsScreen() {
 function ProfileScreen() {
   return (
     <View style={styles.center}>
-      <Text style={styles.tabPlaceholderTitle}>Isha's Profile</Text>
+      <Text style={styles.tabPlaceholderTitle}>User's Profile</Text>
       <Text style={styles.tabPlaceholderSubtitle}>123 Coffee Street, Opol, Misamis Oriental, Philippines</Text>
     </View>
   );

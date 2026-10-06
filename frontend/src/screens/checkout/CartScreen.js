@@ -19,6 +19,7 @@ import {
 import { useCart } from '../../context/CartContext';
 import { COLORS, RADIUS, SHADOWS, SPACING } from '../../constants/theme';
 import { formatCurrency } from '../../utils/formatters';
+import { getImageUrl } from '../../utils/imageUrl';
 
 export default function CartScreen({ navigation }) {
   const {
@@ -112,7 +113,7 @@ export default function CartScreen({ navigation }) {
         {items.map((item) => (
           <View key={item.cartItemId} style={styles.cartCard}>
             <View style={styles.imageContainer}>
-              <Image source={{ uri: item.imageUrl }} style={styles.cartImage} />
+              <Image source={{ uri: getImageUrl(item.imageUrl) }} style={styles.cartImage} />
             </View>
 
             <View style={styles.detailsContainer}>

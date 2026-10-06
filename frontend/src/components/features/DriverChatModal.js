@@ -37,7 +37,7 @@ export default function DriverChatModal({ visible, onClose, driverName = 'Kuya M
     {
       id: 'm1',
       sender: 'driver',
-      text: 'Magandang araw po ma\'am Isha! Picked up your order from Brew & Bite BGC. Safe po sa thermal box, papunta na po! ☕🛵',
+      text: 'Magandang araw po ma\'am, sir! Picked up your order from Brew & Bite. Safe po sa thermal box, papunta na po! ☕🛵',
       time: '2:24 PM',
     },
   ]);
@@ -107,7 +107,7 @@ export default function DriverChatModal({ visible, onClose, driverName = 'Kuya M
     setIsTyping(true);
     setTimeout(() => {
       setIsTyping(false);
-      let replyText = 'Noted po ma\'am Isha! Malapit na po ako dyan. Text or call po ako pag nasa tapat na ng building. Ingat po!';
+      let replyText = 'Noted po ma\'am, sir! Malapit na po ako dyan. Text or call po ako pag nasa tapat na ng building. Ingat po!';
       if (text.toLowerCase().includes('lobby') || text.toLowerCase().includes('guard')) {
         replyText = 'Sige po ma\'am, ibilin ko po sa lobby guard. Picture-an ko na lang din po pag naiwan na. Salamat po!';
       } else if (text.toLowerCase().includes('call')) {
