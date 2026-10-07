@@ -1,4 +1,4 @@
-# Velvet Brew & Burger Co. - Mobile Ordering System
+# Brew & Bite - Mobile Ordering System
 
 **Course:** ADET — Midterm Project  
 **Architecture:** React Native (Expo) ➔ Axios ➔ Laravel REST API (No Database, Pure JSON) ➔ React Native  
