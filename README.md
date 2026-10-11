@@ -1,91 +1,153 @@
-# Brew & Bite - Mobile Ordering System
+# Brew & Bite — Frontend
 
-**Course:** ADET — Midterm Project  
-**Architecture:** React Native (Expo) ➔ Axios ➔ Laravel REST API (No Database, Pure JSON) ➔ React Native  
-**Icon Library:** Lucide Icons (`lucide-react-native`)  
-**Team Size:** 5 Members  
+A mobile-friendly cafe ordering application built with **React Native and Expo**. The frontend connects to a Laravel REST API using Axios and supports running in Expo Go on a physical Android phone or in a web browser.
 
----
+## Project Overview
 
-## 📱 Project Overview
+Brew & Bite allows users to browse cafe products, view item details, customize orders, manage their cart, apply promotional vouchers, and submit simulated orders.
 
-A fast-casual Food & Cafe Mobile Ordering Application connecting a **React Native (Expo)** mobile frontend to a **Laravel REST API** using **Axios**. 
+### Technology Stack
 
-Per project requirements:
-- **No database required**: All mock data is held in-memory and returned as clean JSON.
-- **6 REST API Endpoints** (Exceeds the 5 required).
-- **5 Mobile Screens** with full browsing, cart, and simulated checkout flow.
-- Built-in network support for testing on physical mobile phones via **Expo Go** or in a web browser.
+- **React Native** — mobile user interface
+- **Expo** — development and testing
+- **Axios** — HTTP requests to the Laravel API
+- **React Context API** — cart state management
+- **Lucide React Native** — icons
+- **React Native SVG** — SVG support
+- **Laravel REST API** — JSON data and simulated order processing
 
----
+The project uses mock data returned directly as JSON. A database is not required.
 
-## 🛠️ Tech Stack
+## Requirements
 
-- **Mobile Client:** React Native with Expo (SDK 57)
-- **Networking:** Axios API Client with custom interceptors & error handlers
-- **UI & Icons:** Vanilla React Native Stylesheet, `lucide-react-native`, `react-native-svg`
-- **State Management:** React Context API (`CartContext`)
-- **Backend:** Laravel 9 (PHP 8.0) REST API returning direct JSON
-- **Data Persistence:** In-memory repository (No DB required)
+Install the following before running the project:
 
----
+- Node.js and npm
+- PHP and Composer for the Laravel backend
+- Expo Go on your Android phone, if testing on a physical device
 
-## ⚡ Quick Start Guide (Using PowerShell Scripts)
+## Installation
 
-To get the full stack environment running, open three separate PowerShell windows and run the following commands:
+From the repository root, open a terminal and run:
 
-### 1. Start the Android Emulator
-From the project root directory, run:
-```powershell
-.\start-emulator.ps1
-```
-*(Wait for the Android device to fully boot up before proceeding to step 3).*
-
-### 2. Start the Laravel Backend API
-Open a new terminal, navigate to the `backend` folder, and run:
-```powershell
-cd backend
-.\dev.ps1
-```
-*(This uses a custom Artisan command to start the API on `0.0.0.0:8000` so the emulator can reach it).*
-
-### 3. Start the React Native (Expo) Frontend
-Open a third terminal, navigate to the `frontend` folder, and run:
 ```powershell
 cd frontend
-npx expo start --android
+npm install
 ```
-*(The `--android` flag automatically opens the project on your running emulator).*
 
----
+## Running the Application
 
-## 🌐 API Endpoints Summary
+### 1. Start the Laravel Backend
+
+Open a separate terminal from the repository root:
+
+```powershell
+cd backend
+php artisan serve --host=0.0.0.0 --port=8000
+```
+
+Keep the backend terminal running.
+
+### 2. Configure the API Server Address
+
+Open:
+
+`frontend/src/config/server.js`
+
+The frontend uses the server configuration to construct its API base URL.
+
+- **Expo Web:** Uses `localhost` when the browser and Laravel backend run on the same computer.
+- **Expo Go:** Uses the local IPv4 address of the computer running Laravel.
+
+To find your computer's IPv4 address on Windows, run:
+
+```powershell
+ipconfig
+```
+
+Find the IPv4 address of the network connection you are using, then update the LAN IP in `server.js` if necessary.
+
+For example, if your computer's address is `192.168.0.123`, the API base URL on your phone should be:
+
+`http://192.168.0.123:8000/api`
+
+Your phone and computer should be connected to the same local network, and the computer's firewall must allow access to port `8000`.
+
+**Important:** Do not use `localhost` or `127.0.0.1` as the backend address for Expo Go on a physical phone. Those addresses refer to the phone itself.
+
+### 3. Start Expo
+
+Open another terminal:
+
+```powershell
+cd frontend
+npx expo start
+```
+
+- **For Expo Go:** Scan the QR code with Expo Go on your phone.
+- **For Web:** Press `w` in the Expo terminal if web support is available.
+
+Keep both the Laravel backend and Expo development server running while testing.
+
+## API Endpoints
+
+The frontend communicates with the Laravel backend through Axios.
 
 | Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/health` | Health-check endpoint verifying API server is online |
-| `GET` | `/api/store-info` | Store name, tagline, hours, rating, and announcements |
-| `GET` | `/api/categories` | Food and beverage category list with Lucide icon keys |
-| `GET` | `/api/menu` | All menu items (supports `?category=burgers` query filter) |
-| `GET` | `/api/menu/{id}` | Single item details, size options, and customizable add-ons |
-| `GET` | `/api/promotions` | Active discount vouchers & promo banners |
-| `POST` | `/api/orders` | Places a simulated order and returns an itemized receipt |
+|---|---|---|
+| GET | `/api/health` | Checks API availability |
+| GET | `/api/store-info` | Retrieves store information |
+| GET | `/api/categories` | Retrieves menu categories |
+| GET | `/api/menu` | Retrieves menu items |
+| GET | `/api/menu/{id}` | Retrieves details for a menu item |
+| GET | `/api/promotions` | Retrieves promotions and vouchers |
+| POST | `/api/orders` | Submits a simulated order |
 
----
+The menu endpoint supports a category filter, such as `?category=burgers`, when supported by the backend.
 
-## 📱 Mobile Screens
+## Frontend Structure
 
-1. **Home Screen (`HomeScreen.js`)**: Store header, live store status pill, exclusive deal banners, category switcher, and bestselling favorites with quick add.
-2. **Menu Catalog (`MenuScreen.js`)**: Real-time search bar, category filter tabs, item count indicator, and product cards.
-3. **Item Detail Screen (`ItemDetailScreen.js`)**: Food hero image, description, portion size radio selector, add-on checkboxes, quantity adjuster, and floating Add-to-Order bar.
-4. **Cart & Checkout Screen (`CartScreen.js`)**: Dine-in / Takeaway / Delivery selector, item quantity adjusters, discount voucher input (`MIDTERM20` or `STUDENT10`), payment breakdown, and Submit Order button.
-5. **Order Tracking Screen (`OrderTrackingScreen.js`)**: Celebratory confirmation, order code, animated kitchen status stepper (Received ➔ In Kitchen ➔ Ready for Pickup), and full itemized receipt.
+Important project files and folders include:
 
----
+- `App.js` — main application component
+- `app.json` — Expo configuration
+- `index.js` — application entry point
+- `assets/` — images, fonts, and other static assets
+- `src/api/` — Axios client and API request configuration
+- `src/config/` — shared server configuration
+- `src/utils/` — helper utilities, including image URL handling
+- `src/` — application screens, components, and supporting code
 
-## 📡 Mobile Network Configuration
+## Troubleshooting
 
-If your computer's IP address changes when switching Wi-Fi networks:
-1. Run `ipconfig` (Windows) or `ifconfig` (Mac/Linux).
-2. Note your **IPv4 Address** (e.g. `192.168.1.XX`).
-3. Update `DEFAULT_LAN_IP` in `frontend/src/api/client.js`.
+### API connection fails on a physical phone
+
+1. Confirm that Laravel is running on port `8000`.
+2. Check the computer's current IPv4 address.
+3. Update `frontend/src/config/server.js` with the correct address.
+4. Confirm that your phone and computer are on the same network.
+5. Check that the firewall allows connections to port `8000`.
+
+### Product images do not appear
+
+Confirm that the Laravel image files exist under the backend's public image directory and that the image URLs are reachable from the device running the app.
+
+The frontend image URL helper can replace localhost-based image URLs on Android with the configured server address.
+
+### Expo does not start
+
+From the frontend directory, run:
+
+```powershell
+npm install
+npx expo start
+```
+
+If dependencies are missing, check the terminal output before changing package versions.
+
+## Notes
+
+- This project is intended for development and academic demonstration.
+- Orders use a simulated checkout flow.
+- The application does not require a database for its mock API data.
+- When moving the project to another computer, configure the LAN IP for physical-phone testing.
