@@ -1,6 +1,5 @@
 import { Platform } from 'react-native';
 
-
 const PORT = '8000';
 
 const getServerHost = () => {
@@ -8,8 +7,7 @@ const getServerHost = () => {
     return 'localhost';
   }
 
-  // Set this to the computer running Laravel.
-  return '192.168.0.116';
+  return '192.168.0.100';
 };
 
 export const SERVER_HOST = getServerHost();

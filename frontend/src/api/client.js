@@ -1,22 +1,14 @@
-import axios from 'axios';
-import { Platform } from 'react-native';
+import axios from 'axios';  
 import Constants from 'expo-constants';
+import { SERVER_URL } from '../config/server';
+
 
 console.log('Expo host URI:', Constants.expoConfig?.hostUri);
 console.log('Expo linking URI:', Constants.linkingUri);
 
-const HOST_LAN_IP = '192.168.0.116';
-const PORT = '8000';
 
 const getBaseUrl = () => {
-  if (Platform.OS === 'web') {
-    return `http://localhost:${PORT}/api`;
-  }
-if (Platform.OS === 'android') {
-  return `http://${HOST_LAN_IP}:${PORT}/api`;
-}
-
-  return `http://${HOST_LAN_IP}:${PORT}/api`;
+  return `${SERVER_URL}/api`;
 };
 
 export const BASE_API_URL = getBaseUrl();
