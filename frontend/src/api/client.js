@@ -1,5 +1,9 @@
 import axios from 'axios';
 import { Platform } from 'react-native';
+import Constants from 'expo-constants';
+
+console.log('Expo host URI:', Constants.expoConfig?.hostUri);
+console.log('Expo linking URI:', Constants.linkingUri);
 
 const HOST_LAN_IP = '192.168.0.116';
 const PORT = '8000';

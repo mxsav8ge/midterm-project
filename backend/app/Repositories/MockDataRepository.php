@@ -25,7 +25,7 @@ class MockDataRepository
     }
 
     /**
-     * Coffee categories matching the design
+     * Coffee and dessert categories
      */
     public static function getCategories(): array
     {
@@ -50,11 +50,16 @@ class MockDataRepository
                 'name' => 'Espresso',
                 'icon' => 'zap',
             ],
+            [
+                'id' => 'dessert',
+                'name' => 'Dessert',
+                'icon' => 'cake-slice',
+            ],
         ];
     }
 
     /**
-     * Menu items exactly matching the mockup screens with PHP prices
+     * Menu items
      */
     public static function getMenuItems(?string $categoryId = null): array
     {
@@ -86,6 +91,7 @@ class MockDataRepository
                     ['id' => 'vanilla_syrup', 'name' => 'Vanilla Syrup', 'price' => 25.00],
                 ],
             ],
+
             [
                 'id' => 2,
                 'categoryId' => 'latte',
@@ -113,6 +119,7 @@ class MockDataRepository
                     ['id' => 'vanilla_syrup', 'name' => 'Vanilla Syrup', 'price' => 25.00],
                 ],
             ],
+
             [
                 'id' => 3,
                 'categoryId' => 'cappuccino',
@@ -122,7 +129,7 @@ class MockDataRepository
                 'rating' => 4.7,
                 'reviews' => 140,
                 'isPopular' => false,
-                'isSpecial' => true,
+                'isSpecial' => false,
                 'imageUrl' => 'http://localhost:8000/images/drinks/drinks4.png',
                 'description' => 'Double shot of ristretto blended with velvety microfoam milk for an intense coffee punch.',
                 'sizes' => [
@@ -137,6 +144,7 @@ class MockDataRepository
                     ['id' => 'extra_shot', 'name' => 'Extra Shot', 'price' => 40.00],
                 ],
             ],
+
             [
                 'id' => 4,
                 'categoryId' => 'espresso',
@@ -158,10 +166,91 @@ class MockDataRepository
                     ['id' => 'extra_shot', 'name' => 'Extra Shot', 'price' => 40.00],
                 ],
             ],
+
+            [
+                'id' => 5,
+                'categoryId' => 'dessert',
+                'name' => 'Pudding',
+                'subtitle' => 'Creamy & Delightful',
+                'price' => 60.00,
+                'rating' => 4.8,
+                'reviews' => 102,
+                'isPopular' => true,
+                'isSpecial' => false,
+                'imageUrl' => 'http://localhost:8000/images/desserts/dessert1.png',
+                'description' => 'A smooth and creamy pudding with a rich, sweet flavor and a silky texture, perfect for a satisfying dessert.',
+                'sizes' => [],
+                'milks' => [],
+                'extras' => [
+                    ['id' => 'extra_topping', 'name' => 'Extra Topping', 'price' => 15.00],
+                ],
+            ],
+
+            [
+                'id' => 6,
+                'categoryId' => 'dessert',
+                'name' => 'Red Velvet Cake',
+                'subtitle' => 'Rich & Velvety',
+                'price' => 120.00,
+                'rating' => 4.9,
+                'reviews' => 112,
+                'isPopular' => false,
+                'isSpecial' => false,
+                'imageUrl' => 'http://localhost:8000/images/desserts/dessert2.png',
+                'description' => 'A moist red velvet cake layered with smooth cream cheese frosting, offering a rich cocoa flavor and a perfectly sweet finish.',
+                'sizes' => [],
+                'milks' => [],
+                'extras' => [
+                    ['id' => 'extra_topping', 'name' => 'Extra Topping', 'price' => 20.00],
+                ],
+            ],
+
+            [
+                'id' => 7,
+                'categoryId' => 'dessert',
+                'name' => 'Pancake',
+                'subtitle' => 'Fluffy & Golden',
+                'price' => 55.00,
+                'rating' => 4.7,
+                'reviews' => 99,
+                'isPopular' => false,
+                'isSpecial' => false,
+                'imageUrl' => 'http://localhost:8000/images/desserts/dessert3.png',
+                'description' => 'A stack of fluffy golden pancakes drizzled with sweet maple syrup and topped with a smooth pat of butter.',
+                'sizes' => [],
+                'milks' => [],
+                'extras' => [
+                    ['id' => 'extra_topping', 'name' => 'Extra Topping', 'price' => 15.00],
+                ],
+            ],
+
+            [
+                'id' => 8,
+                'categoryId' => 'dessert',
+                'name' => 'Waffle',
+                'subtitle' => 'Crispy & Golden',
+                'price' => 65.00,
+                'rating' => 4.7,
+                'reviews' => 95,
+                'isPopular' => false,
+                'isSpecial' => false,
+                'imageUrl' => 'http://localhost:8000/images/desserts/dessert4.png',
+                'description' => 'Golden Belgian-style waffles with a crisp exterior and soft center, finished with a generous drizzle of sweet maple syrup.',
+                'sizes' => [],
+                'milks' => [],
+                'extras' => [
+                    ['id' => 'extra_topping', 'name' => 'Extra Topping', 'price' => 15.00],
+                ],
+            ],
         ];
 
         if ($categoryId && $categoryId !== 'all') {
-            return array_values(array_filter($items, fn($item) => $item['categoryId'] === $categoryId));
+            return array_values(
+                array_filter(
+                    $items,
+                    fn($item) => $item['categoryId'] === $categoryId
+                )
+            );
         }
 
         return $items;
@@ -170,11 +259,13 @@ class MockDataRepository
     public static function findMenuItem(int $id): ?array
     {
         $items = self::getMenuItems();
+
         foreach ($items as $item) {
             if ($item['id'] === $id) {
                 return $item;
             }
         }
+
         return null;
     }
 
